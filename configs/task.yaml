@@ -1,0 +1,121 @@
+# 任务配置文件
+# 金融文本智能课程项目
+
+# 项目基本信息
+project:
+  name: "金融文本智能分析"
+  version: "1.0.0"
+  description: "基于巨潮资讯网PDF的金融文本智能分析系统"
+
+# 数据配置
+data:
+  # PDF 文件存储路径
+  pdf_dir: "data/pdf"
+  # 解析后文本存储路径
+  parsed_dir: "data/parsed"
+  # 元数据存储路径
+  metadata_dir: "data/metadata"
+  # 支持的文件格式
+  supported_formats:
+    - pdf
+
+# PDF 解析配置
+parser:
+  # 解析引擎: pypdf2, pdfplumber, mineru
+  engine: "pdfplumber"
+  # 是否保留表格
+  keep_tables: true
+  # 是否保留图片
+  keep_images: false
+  # 文本提取参数
+  text_extraction:
+    # 最小文本长度
+    min_text_length: 10
+    # 是否合并段落
+    merge_paragraphs: true
+
+# LLM 配置
+llm:
+  # 模型名称（从环境变量读取）
+  model: "${LLM_MODEL_NAME}"
+  # API 基础 URL（从环境变量读取）
+  base_url: "${LLM_API_BASE_URL}"
+  # 请求参数
+  parameters:
+    temperature: 0.7
+    max_tokens: 2000
+    top_p: 0.9
+  # 重试配置
+  retry:
+    max_attempts: 3
+    delay: 1
+
+# 分析任务配置
+analysis:
+  # 信息抽取任务
+  extraction:
+    enabled: true
+    # 抽取字段
+    fields:
+      - company_name
+      - report_date
+      - financial_metrics
+      - key_events
+  # 文本分类任务
+  classification:
+    enabled: true
+    categories:
+      - 年报
+      - 半年报
+      - 季报
+      - 公告
+      - 其他
+  # 情感分析任务
+  sentiment:
+    enabled: false
+    model: "default"
+
+# 评估配置
+evaluation:
+  # 评估指标
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+  # 交叉验证折数
+  cv_folds: 5
+  # 评估报告输出路径
+  report_dir: "outputs/reports"
+
+# 输出配置
+output:
+  # 日志配置
+  logging:
+    level: "INFO"
+    format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}"
+    file: "outputs/logs/app.log"
+    rotation: "10 MB"
+  # 结果输出
+  results:
+    dir: "outputs/results"
+    format: "json"
+  # 报告输出
+  reports:
+    dir: "outputs/reports"
+    format: "markdown"
+
+# 工作流配置
+workflow:
+  # 并行处理
+  parallel:
+    enabled: true
+    max_workers: 4
+  # 任务队列
+  queue:
+    enabled: false
+    backend: "redis"
+  # 检查点
+  checkpoint:
+    enabled: true
+    dir: "outputs/checkpoints"

@@ -1,0 +1,18 @@
+project_name: "bank_esg_verifiability"
+source: "cninfo"
+keywords:
+  - "ESG报告"
+  - "可持续发展报告"
+  - "社会责任报告"
+markets:
+  - "sz"
+  - "sh"
+date_range:
+  start: "2022-01-01"
+  end: "2023-12-31"
+max_records: 500
+sleep_seconds: 1.5
+output:
+  metadata: "data/metadata/metadata.csv"
+  pdf_dir: "data/pdf"
+  failed_downloads: "outputs/logs/failed_downloads.csv"
