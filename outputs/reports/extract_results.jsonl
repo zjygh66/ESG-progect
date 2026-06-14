@@ -1,0 +1,2 @@
+{"doc_id": "2021-1212533363", "issue_name": "风险管理", "section_title": "风险管理章节", "extracted_fields": {"risk_type": "信用风险", "risk_level": "中等"}, "evidence_text": "根据风险管理报告，信用风险处于中等水平", "confidence": 0.85}
+{"doc_id": "2021-1212533363", "issue_name": "公司治理", "section_title": "公司治理章节", "extracted_fields": {"board_size": 15, "independent_directors": 5}, "evidence_text": "董事会由15名成员组成，其中5名为独立董事", "confidence": 0.92}
