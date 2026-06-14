@@ -1,0 +1,35 @@
+# MinerU 模型配置
+
+# PDF 解析配置
+pdf:
+  # 是否使用 OCR 识别扫描版 PDF
+  use_ocr: true
+  
+  # OCR 语言设置
+  ocr_languages:
+    - ch  # 中文
+    - en  # 英文
+  
+  # 图片缩放倍数 (提高 OCR 精度)
+  image_scale: 2
+
+# 解析引擎
+parser:
+  # 优先使用 MinerU API，失败时降级
+  primary: mineru_api
+  fallback: pdfminer
+  
+  # pdfminer 配置
+  pdfminer:
+    laparams:
+      line_margin: 0.5
+      word_margin: 0.1
+      char_margin: 2
+
+# 输出配置
+output:
+  # 是否保留页码标记
+  keep_page_markers: true
+  
+  # Markdown 分隔符
+  page_separator: "---"
