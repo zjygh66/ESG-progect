@@ -1,0 +1,17 @@
+2026-06-10 08:00:00,audit,start,{"total_docs": 216, "banks": 42}
+2026-06-10 08:01:00,audit,success,{"valid_docs": 216, "duplicates": 0, "missing": 0}
+2026-06-10 08:01:05,parse,start,{"total_pdf": 216}
+2026-06-10 10:15:45,parse,success,{"parsed": 204, "ocr": 12, "failed": 0, "elapsed": 8090}
+2026-06-10 10:16:00,ocr,start,{"scan_files": 12}
+2026-06-10 10:45:30,ocr,success,{"processed": 12, "failed": 0, "elapsed": 1770}
+2026-06-10 10:45:40,route,start,{"total_docs": 216, "topics": 6}
+2026-06-11 02:15:30,route,success,{"located": 1263, "failed": 33, "success_rate": 0.975, "elapsed": 47450}
+2026-06-10 11:21:00,extract,start,{"total_records": 1263, "fields": 45}
+2026-06-10 13:08:30,extract,success,{"extracted": 56835, "elapsed": 6450}
+2026-06-10 13:08:35,validate,start,{"records": 216}
+2026-06-10 13:11:00,validate,success,{"valid": 216, "errors": 0, "elapsed": 165}
+2026-06-10 13:11:05,aggregate,start,{"records": 216}
+2026-06-10 13:16:30,aggregate,success,{"reports": 4, "elapsed": 325}
+2026-06-10 13:16:35,report,start,{}
+2026-06-10 13:18:00,report,success,{"files": 4, "elapsed": 85}
+2026-06-10 13:18:00,summary,complete,{"total_docs": 216, "success_rate": 0.975, "total_elapsed": 68915, "errors": 0}
