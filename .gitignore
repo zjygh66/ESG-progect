@@ -11,8 +11,9 @@ data/parsed/*
 data/metadata.csv
 
 # 输出结果和日志
-outputs/logs/*
+!outputs/logs/
 !outputs/reports/
+!outputs/results/
 
 # IDE 配置文件
 .idea/
